@@ -1,20 +1,25 @@
-let root,selectedNode;
+let forest,tree,selectedNode
 let width = 600, height=600;
+const treemap = data=>
+  d3.treemap()
+    .size([width,height])
+    .paddingInner(4)
+    .paddingOuter(4)
+    .paddingTop(20)
+    .round(true)(data)
 
 function creaArbol(data){
-    root = d3.stratify()
+    /*Crea un arbol con toda la información de cvs*/
+    forest = d3.stratify()
       .id(d=>d.Subcategoria)
       .parentId(d=>d.Categoria)
         (data);
-    root.each(n=>n.value=+n.data.Valor);
-    root.sort((a,b)=>b.value-a.value);
-    d3.treemap()
-      .size([width,height])
-      .paddingInner(4)
-      .paddingOuter(4)
-      .round(true)
-        (root);
-    selectedNode=root;
+    forest.each(n=>n.value=+n.data.Valor);
+    forest.sort((a,b)=>b.value-a.value);
+    tree = forest.children[0].copy();
+    selectedNode = tree;
+    treemap(tree);
+    selectedNode = tree;
     grafica();
 }
 
@@ -25,16 +30,22 @@ function archivo(event){
 }
 
 function cambioSelected(nodo){
-  root.each(n=>{
-    if(n.id===nodo)
+  tree.each(n=>{
+    if(n.data.Subcategoria===nodo)
       if(n.height===0) console.log(n);
       else selectedNode=n;
   });
   grafica();
 }
 
+function textMeasure(text){
+  let ctx = document.getElementById("textMeasure").getContext("2d");
+  ctx.font = "0.6rem Helvetica"
+  return ctx.measureText(text).width;
+}
+
 function grafica(){
-  if(!selectedNode) selectedNode=root;
+  if(!selectedNode) selectedNode=tree;
   /**estas lineas**/
   let lista = new Set(selectedNode.ancestors());
   selectedNode.ancestors().forEach(n=>{
@@ -53,9 +64,29 @@ function grafica(){
         .attr('width',d=>(d.x1-d.x0))
         .attr('height',d=>(d.y1-d.y0))
         .attr('fill',d=>`rgb(${(255/3)*d.depth},0,0)`) //cambiar la escala de colores
-        .attr('title',d=>d.data.Subcategoria)
-        .attr('onclick',(d,i)=>`cambioSelected("${d.id}")`);
-  $('.node').tooltip({'container':'body'});
+        .attr('onclick',(d,i)=>`cambioSelected("${d.data.Subcategoria}")`);
+  canvas.selectAll('.titleBack')
+    .data(lista)
+      .join('rect')
+        .classed('titleBack',true)
+        .style('cursor','pointer')
+        .attr('x',d=>d.x0)
+        .attr('y',d=>d.y0)
+        .attr('width',d=>(d.x1-d.x0))
+        .attr('height',d=>20)
+        .attr('fill',d=>`#206`) //cambiar la escala de colores
+        .attr('onclick',(d,i)=>`cambioSelected("${d.data.Subcategoria}")`);
+  canvas.selectAll('.title')
+    .data(lista)
+      .join('text')
+        .classed('title',true)
+        .style('cursor','pointer')
+        .attr('x',d=>d.x0+5)
+        .attr('y',d=>d.y0+16)
+        .attr('textLength',d=>(d.x1-d.x0))
+        .attr('fill',d=>`#f0f`) //cambiar la escala de colores
+        .text(d=>d.data.Subcategoria)
+        .attr('onclick',(d,i)=>`cambioSelected("${d.data.Subcategoria}")`);
 }
 
 $(document).ready(()=>{

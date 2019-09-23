@@ -1,8 +1,20 @@
 Categoria,Subcategoria,Valor,Diferencia,Porcentaje
-,Rama de Actividad,2183195,23159,1.1
-Rama de Actividad,Sector Primario,256075,,
-Sector Primario,Agricultura Ganaderia y Pesca,256075,,
-Rama de Actividad,Sector Secundario,416257,,
-Sector Secundario,Industria Manufacturera,225461,,
-Sector Secundario,Construccion,166835,,
-Sector Secundario,Otros,23961,,
+,Empleo,0,,
+Empleo,Rama de Actividad,2183195,23159,"1,1"
+Rama de Actividad,Sector Primario,256075,1855,"0,7"
+Sector Primario,Agricultura Ganaderia y Pesca,256075,1855,"0,7"
+Rama de Actividad,Sector Secundario,416257,-20708,"-4,7"
+Sector Secundario,Industria Manufacturera,225461,-8537,"-3,6"
+Sector Secundario,Construccion,166835,- 6778,"-3,9"
+Sector Secundario,Otros,23961,-5393,"-18,4"
+Rama de Actividad,Sector comercio y servicios,1503003,39599,"2,7"
+Sector comercio y servicios,Comercio y reparación,350986,-23550,"-6,3"
+Sector comercio y servicios,Transporte y almacenamiento,116889,-11345,"-8,8"
+Sector comercio y servicios,Hoteles y restaurantes,144019,2609,"1,8"
+Sector comercio y servicios,Intermediación financiera y de seguros,45942,-12547,"-21,5"
+Sector comercio y servicios,Actividades profesionales y administrativas de apoyo,183708,2285,"1,3"
+Sector comercio y servicios,Administración pública,101946,27336,"36,6"
+Sector comercio y servicios,Enseñanza y salud,217450,17444,"8,7"
+Sector comercio y servicios,Comunicación y otros servicios,183787,33156,"22,0"
+Sector comercio y servicios,Hogares como empleadores,158276,4211,"2,7"
+Rama de Actividad,No Especificado,7890,2413,"44,3"
