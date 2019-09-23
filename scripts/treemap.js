@@ -15,7 +15,7 @@ function creaArbol(data){
       .parentId(d=>d.Categoria)
         (data);
     forest.each(n=>n.value=+n.data.Valor);
-    forest.sort((a,b)=>b.value-a.value);
+    forest.sort((a,b)=>a.height-b.height);
     tree = forest.children[0].copy();
     selectedNode = tree;
     treemap(tree);
@@ -63,28 +63,27 @@ function grafica(){
         .attr('y',d=>d.y0)
         .attr('width',d=>(d.x1-d.x0))
         .attr('height',d=>(d.y1-d.y0))
-        .attr('fill',d=>`rgb(${(255/3)*d.depth},0,0)`) //cambiar la escala de colores
-        .attr('onclick',(d,i)=>`cambioSelected("${d.data.Subcategoria}")`);
+        .attr('fill',d=>d3.interpolateRdYlGn((d.height*1.)/tree.height))
+        .attr('onclick',(d,i)=>`cambioSelected("${d.data.Subcategoria}")`)
   canvas.selectAll('.titleBack')
     .data(lista)
       .join('rect')
         .classed('titleBack',true)
         .style('cursor','pointer')
-        .attr('x',d=>d.x0)
-        .attr('y',d=>d.y0)
-        .attr('width',d=>(d.x1-d.x0))
-        .attr('height',d=>20)
-        .attr('fill',d=>`#206`) //cambiar la escala de colores
-        .attr('onclick',(d,i)=>`cambioSelected("${d.data.Subcategoria}")`);
+        .attr('x',d=>d.x0+2)
+        .attr('y',d=>d.y0+2)
+        .attr('width',d=>(d.x1-d.x0)-4)
+        .attr('height',d=>16)
+        .attr('fill',d=>`rgb(206,206,206)`)
+        .attr('onclick',(d,i)=>`cambioSelected("${d.data.Subcategoria}")`)
   canvas.selectAll('.title')
     .data(lista)
       .join('text')
         .classed('title',true)
         .style('cursor','pointer')
-        .attr('x',d=>d.x0+5)
+        .attr('x',d=>d.x0+3)
         .attr('y',d=>d.y0+16)
-        .attr('textLength',d=>(d.x1-d.x0))
-        .attr('fill',d=>`#f0f`) //cambiar la escala de colores
+        .attr('fill',d=>`#fff`)
         .text(d=>d.data.Subcategoria)
         .attr('onclick',(d,i)=>`cambioSelected("${d.data.Subcategoria}")`);
 }
