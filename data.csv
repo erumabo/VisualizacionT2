@@ -1,31 +1,45 @@
-Categoria,Subcategoria,Valor,Diferencia,Porcentaje
+Categoria,Subcategoria,Valor,Hombre,Mujer
 ,Empleo,0,,
-Empleo,Rama de Actividad,2183195,23159,"1,1"
-Rama de Actividad,Sector Primario,256075,1855,"0,7"
-Sector Primario,Agricultura Ganaderia y Pesca,256075,1855,"0,7"
-Rama de Actividad,Sector Secundario,416257,-20708,"-4,7"
-Sector Secundario,Industria Manufacturera,225461,-8537,"-3,6"
-Sector Secundario,Construccion,166835,- 6778,"-3,9"
-Sector Secundario,Otros,23961,-5393,"-18,4"
-Rama de Actividad,Sector comercio y servicios,1503003,39599,"2,7"
-Sector comercio y servicios,Comercio y reparación,350986,-23550,"-6,3"
-Sector comercio y servicios,Transporte y almacenamiento,116889,-11345,"-8,8"
-Sector comercio y servicios,Hoteles y restaurantes,144019,2609,"1,8"
-Sector comercio y servicios,Intermediación financiera y de seguros,45942,-12547,"-21,5"
-Sector comercio y servicios,Actividades profesionales y administrativas de apoyo,183708,2285,"1,3"
-Sector comercio y servicios,Administración pública,101946,27336,"36,6"
-Sector comercio y servicios,Enseñanza y salud,217450,17444,"8,7"
-Sector comercio y servicios,Comunicación y otros servicios,183787,33156,"22,0"
-Sector comercio y servicios,Hogares como empleadores,158276,4211,"2,7"
-Rama de Actividad,No Especificado,7890,2413,"44,3"
-Empleo,Grupo Ocupacional,2183195,23159,"1,1"
-Grupo Ocupacional,Directores y Gerentes,19556,211,"1,1"
-Grupo Ocupacional,"Profesionales, científicos e intelectuales",269905,48637,"22,0"
-Grupo Ocupacional,Técnicos y profesionales de nivel medio,200885,30599,"18,0"
-Grupo Ocupacional,Personal de apoyo administrativo,168651,-13824,"-7,6"
-Grupo Ocupacional,Trabajadores de los servicios y vendedores de comercios y mercados,463722,-8133,"-1,7"
-Grupo Ocupacional,"Agricultores y trabajadores calificados agropecuarios, forestales y pesqueros",79920,5183,"6,9"
-Grupo Ocupacional,"Oficiales, operarios y artesanos de artes mecánicas y de otros oficios",256078,12518,"5,1"
-Grupo Ocupacional,Operadores de instalaciones y máquinas y ensambladores,186766,-4734,"-2,5"
-Grupo Ocupacional,Ocupaciones elementales,530031,-44976,"-7,8"
-Grupo Ocupacional,No especificado,7681,-2322,"-23,2"
+Empleo,Rama de Actividad,2183195,,
+Rama de Actividad,Sector Primario,256075,,
+Sector Primario,Agricultura Ganaderia y Pesca,256075,,
+Rama de Actividad,Sector Secundario,416257,,
+Sector Secundario,Industria Manufacturera,225461,,
+Sector Secundario,Construccion,166835,,
+Sector Secundario,Otros,23961,,
+Rama de Actividad,Sector comercio y servicios,1503003,,
+Sector comercio y servicios,Comercio y reparación,350986,,
+Sector comercio y servicios,Transporte y almacenamiento,116889,,
+Sector comercio y servicios,Hoteles y restaurantes,144019,,
+Sector comercio y servicios,Intermediación financiera y de seguros,45942,,
+Sector comercio y servicios,Actividades profesionales y administrativas de apoyo,183708,,
+Sector comercio y servicios,Administración pública,101946,,
+Sector comercio y servicios,Enseñanza y salud,217450,,
+Sector comercio y servicios,Comunicación y otros servicios,183787,,
+Sector comercio y servicios,Hogares como empleadores,158276,,
+Rama de Actividad,No Especificado,7890,,
+Empleo,Grupo Ocupacional,2183195,,
+Grupo Ocupacional,Directores y Gerentes,19556,,
+Grupo Ocupacional,"Profesionales, científicos e intelectuales",269905,,
+Grupo Ocupacional,Técnicos y profesionales de nivel medio,200885,,
+Grupo Ocupacional,Personal de apoyo administrativo,168651,,
+Grupo Ocupacional,Trabajadores de los servicios y vendedores de comercios y mercados,463722,,
+Grupo Ocupacional,"Agricultores y trabajadores calificados agropecuarios, forestales y pesqueros",79920,,
+Grupo Ocupacional,"Oficiales, operarios y artesanos de artes mecánicas y de otros oficios",256078,,
+Grupo Ocupacional,Operadores de instalaciones y máquinas y ensambladores,186766,,
+Grupo Ocupacional,Ocupaciones elementales,530031,,
+Grupo Ocupacional,No especificado,7681,,
+Empleo,Calificación del Grupo Ocupacional,2183195,,
+Calificación del Grupo Ocupacional,Ocupación calificada alta,490346,,
+Calificación del Grupo Ocupacional,Ocupación calificada media,1155137,,
+Calificación del Grupo Ocupacional,Ocupación no calificada,530031,,
+Calificación del Grupo Ocupacional,No especificado,7681,,
+Empleo,Sector Industrial,2183195,,
+Sector Industrial,Público,304855,,
+Sector Industrial,Privado,1878340,,
+Sector Industrial,No especificado,0,,
+Empleo,Posición en el empleo principal,2183195,,
+Posición en el empleo principal,Asalariada,1593172,,
+Posición en el empleo principal,Cuenta Propia,465830,,
+Posición en el empleo principal,Empleadora,81652,,
+Posición en el empleo principal,Auxiliar no remunerado,42541,,
