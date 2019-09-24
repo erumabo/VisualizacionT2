@@ -1,5 +1,5 @@
 let forest,tree,selectedNode
-let width = 600, height=600;
+let width = 1000, height=700;
 const treemap = data=>
   d3.treemap()
     .size([width,height])
@@ -32,27 +32,42 @@ function archivo(event){
 function cambioSelected(nodo){
   tree.each(n=>{
     if(n.data.Subcategoria===nodo)
-      if(n.height===0) console.log(n);
+      if(n.height===0) graficaBarras(n.data);
       else selectedNode=n;
   });
   grafica();
 }
 
-function textMeasure(text){
-  let ctx = document.getElementById("textMeasure").getContext("2d");
-  ctx.font = "0.6rem Helvetica"
-  return ctx.measureText(text).width;
+function wrap(text) {
+  /*cc Mike Bostock, November 18, 2018, from https://bl.ocks.org/mbostock/7555321, retrieved September 23, 2019, modified by Mabo*/
+  text.each(function() {
+    var text = d3.select(this), words = text.text().split(/\s+/).reverse(), word,
+      line = [], lineNumber = 0, lineHeight = 1.1 /*ems*/,
+      y = text.attr("y"), x = text.attr("x"), dy = 0, width = text.attr('data-width'),
+      tspan = text.text(null).append("tspan").attr("x", x).attr("y", y).attr("dy", dy + "em");
+    while (word = words.pop()) {
+      line.push(word);
+      tspan.text(line.join(" "));
+      if (tspan.node().getComputedTextLength() > width) {
+        line.pop();
+        tspan.text(line.join(" "));
+        line = [word];
+        tspan = text.append("tspan").attr("x", x).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+      }
+    }
+  });
 }
 
 function grafica(){
   if(!selectedNode) selectedNode=tree;
-  /**estas lineas**/
+  /** vv estas lineas vv **/
   let lista = new Set(selectedNode.ancestors());
   selectedNode.ancestors().forEach(n=>{
-    if(n.children) n.children.forEach(p=>lista.add(p));
+    if(n.children)
+      n.children.forEach(p=>lista.add(p));
   });
   lista = Array.from(lista).sort((a,b)=>b.height-a.height);
-  /**No me gustan ni un pelo**/
+  /** ^^ No me gustan ni un pelo ^^ **/
   let canvas = d3.select('#treemap');
   canvas.selectAll('.node')
     .data(lista)
@@ -63,18 +78,7 @@ function grafica(){
         .attr('y',d=>d.y0)
         .attr('width',d=>(d.x1-d.x0))
         .attr('height',d=>(d.y1-d.y0))
-        .attr('fill',d=>d3.interpolateRdYlGn((d.height*1.)/tree.height))
-        .attr('onclick',(d,i)=>`cambioSelected("${d.data.Subcategoria}")`)
-  canvas.selectAll('.titleBack')
-    .data(lista)
-      .join('rect')
-        .classed('titleBack',true)
-        .style('cursor','pointer')
-        .attr('x',d=>d.x0+2)
-        .attr('y',d=>d.y0+2)
-        .attr('width',d=>(d.x1-d.x0)-4)
-        .attr('height',d=>16)
-        .attr('fill',d=>`rgb(206,206,206)`)
+        .attr('fill',d=>d3.interpolateCool((d.height*1.)/tree.height))
         .attr('onclick',(d,i)=>`cambioSelected("${d.data.Subcategoria}")`)
   canvas.selectAll('.title')
     .data(lista)
@@ -84,8 +88,10 @@ function grafica(){
         .attr('x',d=>d.x0+3)
         .attr('y',d=>d.y0+16)
         .attr('fill',d=>`#fff`)
-        .text(d=>d.data.Subcategoria)
-        .attr('onclick',(d,i)=>`cambioSelected("${d.data.Subcategoria}")`);
+        .attr('data-width',d=>d.x1-d.x0)
+        .attr('onclick',(d,i)=>`cambioSelected("${d.data.Subcategoria}")`)
+        .text(d=>d.data.Subcategoria);
+  canvas.selectAll('.title').call(wrap);
 }
 
 $(document).ready(()=>{
