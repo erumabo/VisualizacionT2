@@ -1,3 +1,6 @@
 .svg-containter{
   display:inline-block;
 }
+.pointer{
+  cursor:pointer;
+}
