@@ -5,3 +5,7 @@
   font-family:Helvetica,sans-serif;
   font-weight:0.5rem;
 }
+
+.input-group-append button:last-child{
+  border:none;
+}

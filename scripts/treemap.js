@@ -16,8 +16,11 @@ function creaArbol(data){
         (data);
     forest.value = 1.0;
     forest.sort((a,b)=>a.height-b.height);
+    $('#menu-filtro').html();
+    forest.children.forEach((chl,i)=>{
+      $("#menu-filtro").append(`<a class="dropdown-item" onclick="cambioArbol(${i})">${chl.data.Subcategoria}</a>`)
+    });
     cambioArbol(0);
-    grafica();
 }
 
 function archivo(event){
@@ -49,6 +52,7 @@ function cambioArbol(index){
     }
     treemap(tree);
     selectedNode = tree;
+    grafica();
 }
 
 function cambioSelected(nodo){
