@@ -1,7 +1,7 @@
-#Tarea corta n°2 de visualizacion
+# Tarea corta n°2 de visualizacion
 
-Treemap: 100%
-Bargraph: 0%
+- [x] **Treemap:** _100%_
+- [ ] **Bargraph:** _0%_
 
 Pendiente:
-  Crear el bargraph de manera dinamica con los datos de la hoja del arbol seleccionada
+* Crear el bargraph de manera dinamica con los datos de la hoja del arbol seleccionada
