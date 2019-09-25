@@ -6,6 +6,28 @@
   font-weight:0.5rem;
 }
 
+body{
+  text-align:center;
+}
+
+#graphs-container{
+  position:absolute;
+  width:800px;
+  top:5%;
+  left:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#bargraph-container {
+  position:absolute;
+  left:10%;
+  top:10%;
+  display:none;
+  padding:0;
+}
+
 .input-group-append button:last-child{
   border:none;
 }

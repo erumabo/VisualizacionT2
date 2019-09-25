@@ -58,7 +58,7 @@ function cambioArbol(index){
 function cambioSelected(nodo){
   tree.each(n=>{
     if(n.data.Subcategoria===nodo)
-      if(n.height===0) graficaBarras(n.value);
+      if(n.height===0){ let data = n.data; data['value']=n.value; graficaBarras(data);}
       else selectedNode=n;
   });
   grafica();

@@ -12,13 +12,19 @@
   <link rel="stylesheet" href="styles/bars.css">
 </head>
 <body>
-  
-  <div id="treemap-container" class="svg-container">
-    <svg id="treemap"></svg>
-  </div>
-  
-  <div id="bargraph-container" class="svg-container">
-    <svg id="bargraph"></svg>
+  <div id="graphs-container"> 
+    <div id="treemap-container" class="svg-container">
+      <svg id="treemap"></svg>
+    </div> 
+    <div id="bargraph-container" class="svg-container card">
+      <div class="card-header">
+        <label id="bargraph-title"></label>
+        <button type="button" class="close" onclick="$('#bargraph-container').hide();">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="card-body"><svg id="bargraph"></svg></div>
+    </div>
   </div>
   
   <div class="input-group">
@@ -27,9 +33,7 @@
     <div>
     <div class="input-group-append">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown">Filtro<button>
-      <div class="dropdown-menu" id="menu-filtro">
-        <a class="dropdown-item">Lorem</a>
-      </div>
+      <div class="dropdown-menu" id="menu-filtro"></div>
     </div>
   </div>
 
