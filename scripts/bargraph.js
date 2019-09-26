@@ -18,13 +18,14 @@ function graficaBarras(data){
     .data(datar)
     .join('path')
       .attr('d',arcGen)
-      .attr('fill',d=>d3.interpolateSpectral(d.value/total))
-      .attr('stroke',d=>d3.interpolateViridis(d.value/total));
+      .attr('fill',d=>{if(d.data.key=="Hombre")return'maroon';else return'mediumspringgreen';});
   piechart.selectAll('mySlices')
     .data(datar)
     .join('text')
       .attr('transform',d=>`translate(${arcGen.centroid(d)})`)
       .style('text-anchor','middle')
+      .attr('fill',d=>{if(d.data.key=="Hombre")return'white';else return'black'})
+      .attr('font-weight','bold')
       .text(d=>d.data.key);
 
   //Un gráfico de barras.
