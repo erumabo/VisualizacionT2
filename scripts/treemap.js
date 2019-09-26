@@ -71,7 +71,7 @@ function wrap(text) {
       line = [], lineNumber = 0, lineHeight = 1.1 /*ems*/,
       y = text.attr("y"),x = text.attr('x'), dy = parseFloat(text.attr('dy')),
       width = text.attr('data-width'),
-      tspan = text.text(null).append("tspan").attr('x',0).attr('y',y).attr("dy", dy + "em");
+      tspan = text.text(null).append("tspan").attr('x',x).attr('y',y).attr("dy", dy + "em");
     while (word = words.pop()) {
       line.push(word);
       tspan.text(line.join(" "));
@@ -79,7 +79,7 @@ function wrap(text) {
         line.pop();
         tspan.text(line.join(" "));
         line = [word];
-        tspan = text.append("tspan").attr('x',0).attr('y',y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+        tspan = text.append("tspan").attr('x',x).attr('y',y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
       }
     }
   });
@@ -107,12 +107,14 @@ function grafica(){
     .classed('pointer',true)
     .attr('width',d=>d.x1-d.x0)
     .attr('height',d=>d.y1-d.y0)
+    .attr('rx',14)
+    .attr('ry',14)
     .attr('fill',d=>d3.interpolateCool((d.height*1.)/tree.height))
     .attr('onclick',d=>`cambioSelected("${d.data.Subcategoria}")`)
   nodos.append('text')
     .classed('title',true)
-    .attr('x',4)
-    .attr('y',16)
+    .attr('x',5)
+    .attr('y',18)
     .attr('dy',0)
     .attr('fill','#fff')
     .attr('data-width',d=>d.x1-d.x0)
@@ -126,11 +128,6 @@ $(document).ready(()=>{
       .attr('width',width+'px')
       .attr('height',height+'px')
       .attr('viewbox','0 0 '+width+' '+height)
-      .append('rect')
-        .classed('back',true)
-        .attr('width','100%')
-        .attr('height','100%')
-        .attr('fill','rgb(206,206,206)'); //rect para ref visual del fondo
   
   d3.csv("https://raw.githubusercontent.com/erumabo/VisualizacionT2/master/data.csv").then(creaArbol); 
   console.log('ready');
