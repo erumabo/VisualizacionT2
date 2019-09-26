@@ -36,9 +36,9 @@ function graficaBarras(data){
     .range([200, 0]);
 
   //Tengo que agregar dos barras.
-  bargraph.append('rect').attr('width',180).attr('height',200-yScale(data.Hombre)).attr('fill','red')
+  bargraph.append('rect').attr('width',100).attr('height',200-yScale(data.Hombre)).attr('fill','red')
     .attr('transform', 'translate(0, ' + yScale(data.Hombre) + ')');
 
-  bargraph.append('rect').attr('width',180).attr('height',200-yScale(data.Mujer)).attr('fill','green')
-    .attr('transform', 'translate(200, ' + yScale(data.Mujer) + ')');
+  bargraph.append('rect').attr('width',100).attr('height',200-yScale(data.Mujer)).attr('fill','green')
+    .attr('transform', 'translate(120, ' + yScale(data.Mujer) + ')');
 }
