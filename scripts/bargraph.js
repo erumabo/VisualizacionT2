@@ -12,6 +12,7 @@ function graficaBarras(data){
   //canvas.append('rect').attr('width','100%').attr('height','100%').attr('fill','rgb(206,206,206)');
 
   let datar = pie(d3.entries(graph));
+  //Un gráfico de Pie
   let piechart = canvas.append('g').attr('transform','translate(500,100)');
   piechart.selectAll('mySlices')
     .data(datar)
@@ -26,6 +27,18 @@ function graficaBarras(data){
       .style('text-anchor','middle')
       .text(d=>d.data.key);
 
+  //Un gráfico de barras.
   let bargraph = canvas.append('g').attr('transform','translate(0,0)');
-  bargraph.append('rect').attr('width',380).attr('height',200).attr('fill','red');
+
+  //Un escalador para colocar el mayor como punto máximo, y dejar al menor más abajo.
+  let yScale = d3.scaleLinear()
+    .domain([0, Math.max(data.Hombre, data.Mujer)])
+    .range([200, 0]);
+
+  //Tengo que agregar dos barras.
+  bargraph.append('rect').attr('width',180).attr('height',200-yScale(data.Hombre)).attr('fill','red')
+    .attr('transform', 'translate(0, ' + yScale(data.Hombre) + ')');
+
+  bargraph.append('rect').attr('width',180).attr('height',200-yScale(data.Mujer)).attr('fill','green')
+    .attr('transform', 'translate(200, ' + yScale(data.Mujer) + ')');
 }
