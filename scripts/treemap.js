@@ -128,7 +128,7 @@ $(document).ready(()=>{
       .attr('width',width+'px')
       .attr('height',height+'px')
       .attr('viewbox','0 0 '+width+' '+height)
-  
-  d3.csv("https://raw.githubusercontent.com/erumabo/VisualizacionT2/master/data.csv").then(creaArbol); 
+
+  d3.csv("https://raw.githubusercontent.com/erumabo/VisualizacionT2/master/data.csv").then(creaArbol);
   console.log('ready');
 });
