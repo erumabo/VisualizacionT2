@@ -8,12 +8,12 @@ function graficaBarras(data){
   $('#bargraph-container').show();
   $('#bargraph-title').html(data.Subcategoria);
   $('#bargraph').html('');
-  let canvas = d3.selectAll('#bargraph').attr('width',600).attr('height',200);
+  let canvas = d3.selectAll('#bargraph').attr('width',500).attr('height',300);
   //canvas.append('rect').attr('width','100%').attr('height','100%').attr('fill','rgb(206,206,206)');
 
   let datar = pie(d3.entries(graph));
   //Un gráfico de Pie
-  let piechart = canvas.append('g').attr('transform','translate(500,100)');
+  let piechart = canvas.append('g').attr('transform','translate(400,150)');
   piechart.selectAll('mySlices')
     .data(datar)
     .join('path')
@@ -32,7 +32,7 @@ function graficaBarras(data){
 
   //Valores para las barras
   let barWidth = 100;
-  let barMaxHeight = 160;
+  let barMaxHeight = 260;
 
   //Un escalador para colocar el mayor como punto máximo, y dejar al menor más abajo.
   let yScale = d3.scaleLinear()
