@@ -41,10 +41,10 @@ function graficaBarras(data){
     .range([barMaxHeight, 0]);
 
   //Tengo que agregar dos barras.
-  bargraph.append('rect').attr('width',barWidth).attr('height',barMaxHeight-yScale(data.Hombre)).attr('fill','red')
+  bargraph.append('rect').attr('width',barWidth).attr('height',barMaxHeight-yScale(data.Hombre)).attr('fill','maroon')
     .attr('transform', 'translate(0, ' + yScale(data.Hombre) + ')');
 
-  bargraph.append('rect').attr('width',barWidth).attr('height',barMaxHeight-yScale(data.Mujer)).attr('fill','green')
+  bargraph.append('rect').attr('width',barWidth).attr('height',barMaxHeight-yScale(data.Mujer)).attr('fill','mediumspringgreen')
     .attr('transform', 'translate(' + (barWidth + 20) + ',' + yScale(data.Mujer) + ')');
 
   bargraph.append('text').attr('x', barWidth/4).attr('y', barMaxHeight).attr('dy','.15em').text('Hombre: '+ data.Hombre).call(wrap);

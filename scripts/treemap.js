@@ -1,5 +1,5 @@
 let forest,tree,selectedNode
-let width = 800, height=600;
+let width = 900, height=600;
 const treemap = data=>
   d3.treemap()
     .size([width,height])
@@ -109,7 +109,7 @@ function grafica(){
     .attr('height',d=>d.y1-d.y0)
     .attr('rx',14)
     .attr('ry',14)
-    .attr('fill',d=>d3.interpolateCool((d.height*1.)/tree.height))
+    .attr('fill',d=>d3.interpolateTurbo((d.height*1.)/tree.height))
     .attr('onclick',d=>`cambioSelected("${d.data.Subcategoria}")`)
   nodos.append('text')
     .classed('title',true)
@@ -117,6 +117,8 @@ function grafica(){
     .attr('y',18)
     .attr('dy',0)
     .attr('fill','#fff')
+    .attr('font-size','0.9rem')
+    .attr('font-weight','bold')
     .attr('data-width',d=>d.x1-d.x0)
     .attr('onclick',d=>`cambioSelected("${d.data.Subcategoria}")`)
     .text(d=>d.data.Subcategoria);
