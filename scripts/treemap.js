@@ -109,7 +109,7 @@ function grafica(){
     .attr('height',d=>d.y1-d.y0)
     .attr('rx',14)
     .attr('ry',14)
-    .attr('fill',d=>d3.interpolateTurbo((d.height*1.)/tree.height))
+    .attr('fill',d=>d3.interpolateCool((d.height*1.)/tree.height))
     .attr('onclick',d=>`cambioSelected("${d.data.Subcategoria}")`)
   nodos.append('text')
     .classed('title',true)
